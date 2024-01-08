@@ -1,0 +1,45 @@
+html
+  head
+    title Search Page
+    link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    
+  body
+    a(href= "/welcome") Welcome |
+    |
+    |
+    a(href= `/profile/${username}`) #{username}'s profile |
+    |
+    |
+    a(href= "/search") Search |
+    |
+    |
+    a(href= "/browseArtist") Browse Artist |
+    |
+    |
+    button(type="submit",  onclick = "logout()" ) logout
+    br
+    br
+    div#Search
+        h1  Search 
+        label() Artist
+        br
+        input#artist(type="text")
+        br
+        br
+        label() Artwork Title
+        br
+        input#title(type="text")
+        br
+        br
+        label() Category
+        br
+        input#category(type="text")
+        br
+        br
+        button(type="submit",  onclick = "search()" ) Search
+    div#display
+        br
+        br
+
+        
+    script(src= "http://localhost:3000/public/js/client.js")

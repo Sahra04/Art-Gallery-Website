@@ -1,0 +1,24 @@
+html
+    head 
+        title WELCOME 
+        link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    body
+        header 
+            h1 Welcome To Gallery 
+        div#welcome
+            a(href= "/welcome") Welcome |
+            |
+            |
+            a(href= `/profile/${username}`) #{username}'s profile |
+            |
+            |
+            a(href= "/search") Search |
+            |
+            |
+            a(href= "/browseArtist") Browse Artist |
+            |
+            |
+            button(type="submit",  onclick = "logout()" ) logout
+            br
+            br
+        script(src= "http://localhost:3000/public/js/client.js")

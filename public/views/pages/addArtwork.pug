@@ -1,0 +1,63 @@
+html
+  head
+    title Add Artwork Page
+    link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    
+  body
+    a(href= "/welcome") Welcome |
+    |
+    |
+    a(href= `/profile/${username}`) #{username}'s profile |
+    |
+    |
+    a(href= "/search") Search |
+    |
+    |
+    a(href= "/browseArtist") Browse Artist |
+    |
+    |
+    button(type="submit",  onclick = "logout()" ) logout
+    br
+    br
+    div#addArtwork
+        label() Artwork Title
+        br
+        input#artworkTitle(type="text")
+        br
+        br
+        label() Artist
+        br
+        input#artist(type="text")
+        br
+        br
+        label() Year
+        br
+        input#year(type="text")
+        br
+        br
+        label() Category
+        br
+        input#category(type="text")
+        br
+        br
+        label() Medium
+        br
+        input#medium(type="text")
+        br
+        br
+        label() Description
+        br
+        input#description(type="text")
+        br
+        br
+        label() Poster
+        br
+        input#poster(type="text")
+        br
+        br
+        button(type="submit",  onclick = "addArtwork()" )  Add Artwork
+    
+    script(src= "http://localhost:3000/public/js/client.js")
+
+
+        

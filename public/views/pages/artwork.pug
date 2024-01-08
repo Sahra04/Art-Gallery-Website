@@ -1,0 +1,72 @@
+html
+  head
+    title Artwork Page
+    link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    
+  body
+    a(href= "/welcome") Welcome |
+    |
+    |
+    a(href= `/profile/${username}`) #{username}'s profile |
+    |
+    |
+    a(href= "/search") Search |
+    |
+    |
+    a(href= "/browseArtist") Browse Artist |
+    |
+    |
+    button(type="submit",  onclick = "logout()" ) logout
+    br
+    br
+    div#view
+        h1 #{artpiece.title}
+        br
+        br
+        a(href= `/artist/${artpiece.artist}`) Artist: #{artpiece.artist}
+        br
+        p Year: #{artpiece.year}
+        br
+        a(href= `/category/${artpiece.category}`) Category: #{artpiece.category}
+        br
+        br
+        a(href= `/category/${artpiece.medium}`) Medium: #{artpiece.medium}
+        br
+        br
+        p Description: #{artpiece.description}
+        br
+        br
+    div#poster
+        img(src= artpiece.poster, alt= artpiece.title)
+        br
+        br
+    div#likeAndReview
+        p likes: #{artpiece.likes}
+        if username !== artpiece.artist
+          button(type="submit",  onclick = "addLike()" ) ♡
+        h2 reviews:  
+        if username !== artpiece.artist
+          textarea(id = "review", style = "height: 100px", placeholder = "write your review")
+          br
+          button(type="submit",  onclick = "addReview()" ) add review
+        br
+        br
+        if artpiece.reviews.length > 0 
+          each review in artpiece.reviews
+            p#rv user: #{review} 
+            if username !== artpiece.artist
+              button(type="submit") remove
+    
+    script. 
+      //- variables that are to be used in JavaScript functions 
+      let artUser =  `#{artpiece.artist}`
+      let artID =  `#{artpiece._id}` 
+      let img = `#{artpiece.poster}`
+
+    script(src= "http://localhost:3000/public/js/client.js")
+    
+
+        
+
+
+

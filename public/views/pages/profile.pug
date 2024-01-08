@@ -1,0 +1,86 @@
+html
+    head 
+        title WELCOME 
+        link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    body
+        header 
+           
+        div#welcome
+            a(href= "/welcome") Welcome |
+            |
+            |
+            a(href= `/profile/${username}`) #{username}'s profile |
+            |
+            |
+            a(href= "/search") Search |
+            |
+            |
+            a(href= "/browseArtist") Browse Artist |
+            |
+            |
+            button(type="submit",  onclick = "logout()" ) logout
+            br
+            br
+        div#profile
+            if artist === true
+                h1 Artist: #{username}
+                a(href= `/addartwork`) Add Artwork
+                br
+                br
+                a(href= `/addworkshop`) Add Workshop
+                br
+                br
+                button(type="submit",  onclick = "Change()" ) Account Type Change 
+                br
+                br
+                a(href= `/artist/${username}`) ARTIST: #{username}
+            if artist === false && user.artpieces.length > 0 
+                h1 Patron: #{username}
+                br
+                br
+                button(type="submit",  onclick = "Change()" ) Account Type Change 
+                br
+                br
+                a(href= `/artist/${username}`) ARTIST: #{username}
+                br
+                br
+            if user.artpieces.length ===0  && artist === false
+                h1 Patron: #{username}
+                br
+                br
+                a(href= `/addartwork`) Upgrade to Artist
+        div#following
+            h2 following:
+            if user.following.length > 0 
+                each i in user.following
+                    br
+                    a(href= `/artist/${i}`) #{i}
+                    br
+            h2 liked artworks: 
+            if user.liked.length > 0 
+                each l in user.liked
+                    br
+                    a(href= `/artwork/${l.id}`) 
+                        img(src = l.poster, alt= "liked post")
+            h2 reviewed artworks: 
+            if user.reviewed.length > 0
+                each s in user.reviewed
+                    br
+                    a(href= `/artwork/${s.id}`) 
+                        img(src = s.poster, alt= "reviews post")
+        div#notification
+            h1 notification
+            if user.notification.length > 0 
+                each i in user.notification
+                    p#nf * #{i}
+
+                
+        script. 
+            //- variables that are to be used in JavaScript functions 
+            let boolean =  #{artist}; 
+
+        script(src= "http://localhost:3000/public/js/client.js")
+
+
+                
+            

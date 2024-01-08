@@ -1,0 +1,56 @@
+html
+  head
+    title Artist page
+    link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    
+  body
+    a(href= "/welcome") Welcome |
+    |
+    |
+    a(href= `/profile/${patron}`) #{patron}'s profile |
+    |
+    |
+    a(href= "/search") Search |
+    |
+    |
+    a(href= "/browseArtist") Browse Artist |
+    |
+    |
+    button(type="submit",  onclick = "logout()" ) logout
+    br
+    br
+    div#art
+        h1 ꨄ #{artpieces[0].artist} ꨄ
+        br
+        br
+        if patron !== artpieces[0].artist
+            button(type="submit",  onclick = "follow(this)" , class = "fb")  follow/unfollow
+    div#artT
+        h1 Artworks (๑ > ᴗ < ๑)
+        each artpiece in artpieces 
+            a(href= `/artwork/${artpiece._id}`)  #{artpiece.title} 
+            br
+            img(src = artpiece.poster)
+            br
+    div#workshop
+        h1 Workshops
+        each workshop in workshops 
+            h3 #{workshop.title}
+            if patron !== artpieces[0].artist
+                button(id=`${workshop.title}`, onclick = "enroll(event)"  class = "enroll" )  enroll
+            each item in workshop.enrolled
+                p enrolled: #{item}
+        
+
+        
+    script. 
+        //- variables that are to be used in JavaScript functions 
+        let artUser =  `#{artpieces[0].artist}`
+        let user =  `#{patron}` 
+    
+    script(src= "http://localhost:3000/public/js/client.js")
+            
+
+
+            
+    

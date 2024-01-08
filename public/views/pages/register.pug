@@ -1,0 +1,23 @@
+html
+  head
+    title Register Page
+    link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    
+  body
+    include ../partials/header1
+    br
+    br
+    div#Register
+        h1#t  REGISTER:
+        label() Username
+        input#un(type="text")
+        br
+        br
+        label() Password 
+        input#pd(type="text")
+        br
+        br
+        button(type="submit", onclick = "register()") Register 
+    script(src= "http://localhost:3000/public/js/client.js")
+
+        

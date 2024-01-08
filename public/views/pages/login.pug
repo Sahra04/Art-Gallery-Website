@@ -1,0 +1,21 @@
+html
+  head
+    title Login Page
+    link(rel = 'stylesheet', href = 'http://localhost:3000/public/css/styles.css')
+    
+  body
+    include ../partials/header1
+    br
+    br
+    div#Register
+        h1#t  LOGIN: 
+        label() Username
+        input#user(type="text")
+        br
+        br
+        label() Password 
+        input#pass(type="text")
+        br
+        br
+        button(type="submit",  onclick = "login()" ) Login
+    script(src= "http://localhost:3000/public/js/client.js")
